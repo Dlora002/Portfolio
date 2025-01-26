@@ -1,81 +1,97 @@
-Churn Prediction Using Artificial Neural Networks
-Project Overview
+Portfolio Overview
 
-This project aims to predict customer churn using an Artificial Neural Network (ANN). The model was trained on a dataset containing customer information, and various visualizations were created to evaluate and interpret the model's performance.
+Welcome to my portfolio! Here, I showcase five diverse projects that highlight my expertise in data analysis, machine learning, forecasting, and database management. Below is a detailed description of each project:
 
-The project involves:
+1. CPI Canada Forecasting
 
-    Data preprocessing, including feature encoding and scaling.
-    Building and training a neural network using TensorFlow/Keras.
-    Evaluating the model's performance with metrics like accuracy and loss.
-    Visualizing results to gain insights into the model and the dataset.
+Description: Developed a forecasting model to predict the Canadian Consumer Price Index (CPI), excluding volatile components, to gain insights into inflation and economic stability.
 
-Dataset
+Key Tools & Techniques: R, X-11 Decomposition, STL Decomposition, Naïve Model, Naïve Drift Model, Seasonal Naïve Model, Cross-validation.
 
-The dataset used is Churn_Modelling.csv, which includes:
+Project Highlights:
 
-    Customer demographic and account details.
-    A binary target variable indicating churn (1 = Churn, 0 = Not Churn).
+Performed data cleaning in R, addressing formatting issues and removing unnecessary columns to prepare the dataset for analysis.
 
-Technologies Used
+Visualized the CPI time series from 2020 to 2024, identifying trends and fluctuations, including the impact of COVID-19 on CPI in 2021.
 
-    Python
-    Pandas and NumPy for data manipulation.
-    TensorFlow/Keras for building the ANN.
-    Matplotlib and Seaborn for visualizations.
-    Scikit-learn for preprocessing and evaluation metrics.
+Applied decomposition techniques (X-11, Classical, and STL Decomposition) to isolate trends and seasonal patterns.
 
-Data Preprocessing
+Implemented various forecasting models, including Mean, Naïve, Seasonal Naïve, and STL Decomposition Models.
 
-Steps:
+Achieved the best performance with the Naïve Drift Model, providing accurate forecasts with the lowest RMSE and MAE values.
 
-    Encoding categorical variables:
+Used cross-validation to improve model accuracy and reliability.
 
-    Gender (binary encoding).
-    Country (one-hot encoding).
+Presented forecasting results and insights to stakeholders, highlighting key findings and the economic implications of CPI trends.
 
-    Splitting the dataset into training and test sets.
-    Standardizing features to improve model performance.
+2. Data Cleaning Airbnb
 
-#Example preprocessing code snippet
-X = data.iloc[:, 3:-1].values
-Y = data.iloc[:, -1].values
+Description: The project involved intensive data cleaning steps, addressing missing values, outlier detection, feature engineering, and data transformation.
 
-#Encoding categorical variables
-LE1 = LabelEncoder()
-X[:, 2] = np.array(LE1.fit_transform(X[:, 2]))
+Tools: Python, Pandas, Seaborn, Matplotlib.
 
-ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [1])], remainder="passthrough")
-X = np.array(ct.fit_transform(X))
+Key Steps:
 
-Model Training
+Cleaned data, handled missing values, and calculated average prices by neighborhood.
 
-A feedforward ANN was built with:
+Segmented listings by room type, neighborhood, and amenities.
 
-    Two hidden layers using ReLU activation.
-    A sigmoid-activated output layer for binary classification.
+Used Seaborn and Matplotlib to visualize price distributions, room types, and neighborhood trends.
 
-# Model architecture
-ann = tf.keras.models.Sequential([
-    tf.keras.layers.Dense(units=6, activation="relu"),
-    tf.keras.layers.Dense(units=6, activation="relu"),
-    tf.keras.layers.Dense(units=1, activation="sigmoid")
-])
+3. Garbage CNN Machine Learning
 
-# Compiling and training the ANN
-ann.compile(optimizer="adam", loss="binary_crossentropy", metrics=['accuracy'])
-ann.fit(X_train, Y_train, batch_size=32, epochs=10)
+Description: Developed a machine learning model and API to classify garbage based on local rules.
 
-Visualizations
+Tools & Techniques: Python, TensorFlow, Scikit-learn, FastAPI, PyCharm.
 
-Several visualizations were created to evaluate the model:
+Highlights:
 
-1. Loss and Accuracy Plots Displays the model's training progress over epochs.
+Designed and trained a convolutional neural network (CNN) to classify different types of garbage.
 
-plt.plot(history.history['loss'], label='Loss')
-plt.plot(history.history['accuracy'], label='Accuracy')
-plt.title('Model Performance')
-plt.xlabel('Epoch')
-plt.ylabel('Metric')
-plt.legend()
-plt.show()
+Implemented an API using FastAPI to connect the model with a mobile app.
+
+Enabled users to take pictures of their garbage and receive classification results in real-time.
+
+Ensured compliance with local garbage disposal regulations.
+
+Enhanced user experience with a user-friendly interface and accurate classification results.
+
+Conducted extensive testing and validation to ensure model accuracy and reliability.
+
+Achieved high accuracy in classifying garbage types.
+
+4. ML Classification Breast Cancer
+
+Description: Developed a machine learning model to predict breast cancer diagnosis (malignant vs. benign).
+
+Key Tools & Techniques: Python, Scikit-learn, Imbalanced-learn, Logistic Regression, K-Nearest Neighbors (KNN), Naive Bayes, Decision Trees.
+
+Project Highlights:
+
+Performed data preprocessing and oversampling using RandomOverSampler to handle class imbalance.
+
+Implemented multiple classification and analysis models, including Logistic Regression, KNN, Naive Bayes, and Decision Trees.
+
+Achieved model accuracy of 82% with KNN and 78% with Logistic Regression, evaluated using precision, recall, and F1-score metrics.
+
+Fine-tuned hyperparameters using GridSearchCV to optimize model performance.
+
+Presented outcomes, findings, and suggestions based on results.
+
+Created visual charts using Matplotlib and Seaborn libraries.
+
+5. SQL Data Analysis Vehicle
+
+Description: Designed and executed SQL queries to analyze vehicle sales and pricing trends across Canada.
+
+Key Insights Extracted:
+
+Identified the most expensive vehicle brands and types, segmented by vehicle type and transmission.
+
+Calculated average prices for different categories and classified vehicles by price range (Expensive, Affordable, Cheap).
+
+Analyzed sales distribution by brand, model, and year; determined best-selling brands by state and city in Ontario.
+
+Identified top-selling sellers across Canada and top brands per region.
+
+Techniques: Complex joins, CTEs, ranking functions, grouping, conditional aggregation, and data filtering.
